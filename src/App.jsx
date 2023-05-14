@@ -47,7 +47,7 @@ function App() {
             <ProductItem key={product.id} item={product}/>
           ))}
           <li>
-            <button onClick={loadMore}>Load more</button> 
+            {visible >= length ? null  : <button onClick={loadMore}>Load more</button>}
             <div className="nesto">{`${visible} of ${length}`}</div>
           </li>
         </ProductListContainer>}
