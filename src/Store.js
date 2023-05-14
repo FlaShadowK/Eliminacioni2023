@@ -1,4 +1,5 @@
-import { configureStore, createSlice, current } from "@reduxjs/toolkit";
+import { configureStore, createSlice} from "@reduxjs/toolkit";
+
 
 const dummy_items = await fetch("https://dummyjson.com/products").then((res) =>
   res.json()
@@ -6,18 +7,18 @@ const dummy_items = await fetch("https://dummyjson.com/products").then((res) =>
 
 const productSlice = createSlice({
   name: "items",
-  initialState: dummy_items,
+  initialState: dummy_items.products,
   reducers: { 
     addProduct: (state, action) => {
-      state.products = [...state.products, action.payload];
+      state = [...state, action.payload];
     },
     deleteProduct: (state, action) => {
-      state.products = state.products.filter(product => product.id !== action.payload);
+      state = state.filter(product => product.id !== action.payload);
     },
     updateProduct: (state, action) => {
-      const targetIndex = state.products.findIndex(product => product.id === action.payload.id);
+      const targetIndex = state.findIndex(product => product.id === action.payload.id);
       if(targetIndex != -1){
-        state.products[targetIndex] = action.payload;
+        state[targetIndex] = action.payload;
       }
       else{
         console.log("failed to update")
@@ -30,7 +31,9 @@ const productSlice = createSlice({
 export const {addProduct, deleteProduct, updateProduct} = productSlice.actions;
 
 const items = configureStore({
-  reducer: productSlice.reducer,
+  reducer: {
+    products: productSlice.reducer,
+  }
 });
 
 items.subscribe(() => console.log(items.getState()));
@@ -49,9 +52,9 @@ const test_item = {
   title: "test"
 };
 
-items.dispatch(addProduct(test_item));
-items.dispatch(deleteProduct(15));
-items.dispatch(deleteProduct(6));
-items.dispatch(updateProduct(test_item, 20));
+// items.dispatch(addProduct(test_item));
+// items.dispatch(deleteProduct(15));
+// items.dispatch(deleteProduct(6));
+// items.dispatch(updateProduct(test_item, 20));
 
 export default items;
