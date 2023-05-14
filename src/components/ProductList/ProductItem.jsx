@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./ProductItem.css";
 
 const ProductItem = props => {
@@ -7,7 +8,7 @@ const ProductItem = props => {
         <li className="list-item">
             <img src={product.thumbnail} className="image" />
             <div className="details">
-                <div className="title">{product.title}</div>
+                <Link to="/lol" className="title">{product.title}</Link>
                 <div className="description">{product.description}</div>
             </div>
             <div className="options">
