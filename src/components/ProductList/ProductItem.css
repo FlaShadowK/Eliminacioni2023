@@ -50,10 +50,12 @@ button {
     border-radius: 15px;
     font-weight: 700;
     cursor: pointer;
+    border: solid black;
+    transition: all 0.3s;
 }
 
 button:hover {
     background-color: white;
-    border: solid black;
+    
     color: black;
 }
