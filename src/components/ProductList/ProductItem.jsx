@@ -8,7 +8,7 @@ const ProductItem = props => {
         <li className="list-item">
             <img src={product.thumbnail} className="image" />
             <div className="details">
-                <Link to="/lol" className="title">{product.title}</Link>
+                <Link to={`/product/${product.id}`} className="title">{product.title}</Link>
                 <div className="description">{product.description}</div>
             </div>
             <div className="options">

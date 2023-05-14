@@ -1,0 +1,41 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.j-center {
+    justify-content: center;
+}
+
+.a-center {
+    align-items: center;
+}
+
+.around {
+    justify-content: space-around;
+}
+
+.between {
+    justify-content: space-between;
+}
+
+.evenly {
+    justify-content: space-evenly;
+}
+
+.title {
+    width: 60%;
+    font-weight: 900;
+    text-align: center;
+}
+
+.thumbnail {
+    width: 40%;
+}
