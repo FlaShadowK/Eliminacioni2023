@@ -1,8 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./ProductView.css";
-import ProductViewContainer from "./ProductViewContainer";
-import BackButton from "../../UI/BackButton/BackButton";
+import ProductViewContainer from "../ProductViewContainer";
 
 const ProductView = () => {
     const params = useParams();
@@ -11,10 +10,8 @@ const ProductView = () => {
     const product = useSelector(state => state.products.filter(products => products.id == params.id)[0]);
     console.log(product);
     return (
-
-        <>
-            <BackButton/>
-            <ProductViewContainer>
+        <ProductViewContainer>
+            <div className="row c-gap j-between">
                 <div className="row c-gap">
                     <img src={product.thumbnail} alt="" className="pthumbnail" />
                     <div className="col">
@@ -26,17 +23,21 @@ const ProductView = () => {
                         <div className="pstock">{`In stock: ${product.stock}`}</div>
                     </div>
                 </div>
-                <div className={"row evenly pimage-container"}>
-                    {product.images.map((image, index)=>(
-                        <img key={index} src={image} className="pimage" />
-                    ))}
-                </div>
                 <div className="col r-gap">
-                    <h3 className="">Description:</h3>
-                    <div className="pdescription">{product.description}</div>
+                    <button className="pbutton" type="button">Edit</button>
+                    <button className="pbutton" type="button">Delete</button>
                 </div>
-            </ProductViewContainer>
-        </>
+            </div>
+            <div className={"row evenly pimage-container"}>
+                {product.images.map((image, index)=>(
+                    <img key={index} src={image} className="pimage" />
+                ))}
+            </div>
+            <div className="col r-gap">
+                <h3 className="">Description:</h3>
+                <div className="pdescription">{product.description}</div>
+            </div>
+        </ProductViewContainer>
     );
 };
 

@@ -17,13 +17,7 @@ const productSlice = createSlice({
     },
     updateProduct: (state, action) => {
       const targetIndex = state.findIndex(product => product.id === action.payload.id);
-      if(targetIndex != -1){
-        state[targetIndex] = action.payload;
-      }
-      else{
-        console.log("failed to update")
-      }
-      
+      state[targetIndex] = action.payload;
     }
   },
 });
@@ -55,6 +49,6 @@ const test_item = {
 // items.dispatch(addProduct(test_item));
 // items.dispatch(deleteProduct(15));
 // items.dispatch(deleteProduct(6));
-// items.dispatch(updateProduct(test_item, 20));
+// items.dispatch(updateProduct(test_item));
 
 export default items;

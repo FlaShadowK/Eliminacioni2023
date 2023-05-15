@@ -12,6 +12,9 @@ function App() {
           <Route index element={<Home/>}/>
         </Route>
         <Route path="product/:id" element={<ProductView/>}/>
+        <Route path="product">
+          <Route path="add/:id" element={<>lol</>}/>
+        </Route>
         <Route path="spinnertest" element={<LoadingSpinner/>}/>
       </Routes>
     </BrowserRouter>

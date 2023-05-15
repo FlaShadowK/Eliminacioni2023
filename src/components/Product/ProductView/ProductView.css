@@ -83,6 +83,11 @@
     margin: 20px;
 }
 
+.pbutton {
+    width: 100px !important;
+    height: 50px !important;
+}
+
 .pimage-container {
     overflow-x: scroll;
     justify-content: start;
