@@ -2,7 +2,6 @@ import './LoadingSpinner.css';
 
 const LoadingSpinner = () => {
 
-
     return (
         <div className="spinner-container" id='spinner'>
             <div className="loading-spinner">

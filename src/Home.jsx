@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "./components/UI/LoadingSpinner/LoadingSpinner";
 import ProductListContainer from "./components/ProductList/ProductListContainer";
 import ProductItem from "./components/ProductList/ProductItem"; 
 
