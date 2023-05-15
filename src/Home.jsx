@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import LoadingSpinner from "./components/UI/LoadingSpinner/LoadingSpinner";
-import ProductListContainer from "./components/ProductList/ProductListContainer";
-import ProductItem from "./components/ProductList/ProductItem"; 
+import LoadingSpinner from "./components/UI/LoadingSpinner";
+import ProductListContainer from "./components/Product/ProductListContainer";
+import ProductItem from "./components/Product/ProductItem"; 
 
 function Home() {
   const products = useSelector(state => state.products);

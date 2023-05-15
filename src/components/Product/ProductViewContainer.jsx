@@ -1,5 +1,4 @@
-import "./ProductViewContainer.css";
-import BackButton from "../UI/BackButton/BackButton";
+import BackButton from "../UI/BackButton";
 
 const ProductViewContainer = (props) => {
   return (

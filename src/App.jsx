@@ -1,7 +1,8 @@
 import Home from "./Home"
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import ProductView from "./components/Product/ProductView/ProductView";
-import LoadingSpinner from "./components/UI/LoadingSpinner/LoadingSpinner";
+import ProductView from "./components/Product/ProductView";
+import LoadingSpinner from "./components/UI/LoadingSpinner";
+import ProductAdd from "./components/Product/ProductAdd";  
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
         </Route>
         <Route path="product/:id" element={<ProductView/>}/>
         <Route path="product">
-          <Route path="add/:id" element={<>lol</>}/>
+          <Route path="add" element={<ProductAdd/>}/>
         </Route>
         <Route path="spinnertest" element={<LoadingSpinner/>}/>
       </Routes>

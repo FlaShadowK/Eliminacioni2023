@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import "./ProductView.css";
-import ProductViewContainer from "../ProductViewContainer";
+import ProductViewContainer from "./ProductViewContainer";
 
 const ProductView = () => {
     const params = useParams();
