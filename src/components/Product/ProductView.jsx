@@ -10,7 +10,7 @@ const ProductView = () => {
     console.log(product);
     return (
         <ProductViewContainer>
-            <div className="row c-gap j-between">
+            <div className="row c-gap between">
                 <div className="row c-gap">
                     <img src={product.thumbnail} alt="" className="pthumbnail" />
                     <div className="col">
@@ -22,7 +22,7 @@ const ProductView = () => {
                         <div className="pstock">{`In stock: ${product.stock}`}</div>
                     </div>
                 </div>
-                <div className="col r-gap">
+                <div style={{width: "auto"}} className="row c-gap end bottom">
                     <button className="pbutton" type="button">Edit</button>
                     <button className="pbutton" type="button">Delete</button>
                 </div>

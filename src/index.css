@@ -97,6 +97,10 @@ input, textarea {
   align-items: center;
 }
 
+.bottom {
+  align-items:end;
+}
+
 .around {
   justify-content: space-around;
 }
@@ -107,6 +111,10 @@ input, textarea {
 
 .evenly {
   justify-content: space-evenly;
+}
+
+.end {
+  justify-content: flex-end;
 }
 
 .ptitle {
@@ -141,7 +149,7 @@ input, textarea {
 }
 
 .pthumbnail {
-  max-width: 40%;
+  min-width: 40%;
   max-height: 300px;
 }
 
