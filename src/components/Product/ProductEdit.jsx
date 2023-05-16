@@ -1,8 +1,10 @@
 import ProductViewContainer from "./ProductViewContainer";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ProductEdit = () => {
+    const navigate = useNavigate();
     const params = useParams();
     const product = useSelector(state => state.products.filter(products => products.id == params.id)[0]);
 
@@ -50,7 +52,7 @@ const ProductEdit = () => {
                         </div>
                     </div>
                     <div className="row c-gap">
-                        <button className="w-100 button-cancel">Cancel</button>
+                        <button className="w-100 button-cancel"  onClick={() => navigate("/")} >Cancel</button>
                         <button className="w-100">Save</button>
                     </div>
                 </div>

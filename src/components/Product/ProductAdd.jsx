@@ -1,6 +1,8 @@
 import ProductViewContainer from "./ProductViewContainer";
-
+import { useNavigate } from "react-router-dom";
 const ProductAdd = () => {
+    const navigate = useNavigate();
+
     return (
         <ProductViewContainer>
             <h1>Add Product</h1>
@@ -45,7 +47,7 @@ const ProductAdd = () => {
                         </div>
                     </div>
                     <div className="row c-gap">
-                        <button className="w-100 button-cancel">Cancel</button>
+                        <button className="w-100 button-cancel" onClick={() => navigate("/")}>Cancel</button>
                         <button className="w-100">Add</button>
                     </div>
                 </div>
