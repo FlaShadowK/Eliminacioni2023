@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ProductItem = props => {
     const product = props.item;
+    const navigate = useNavigate();
 
     return (
         <li className="list-item">
@@ -11,8 +13,8 @@ const ProductItem = props => {
                 <div className="description">{product.description}</div>
             </div>
             <div className="options">
-                <button type="button">Edit</button>
-                <button type="button">Delete</button>
+                <button type="button w-100" onClick={() => navigate(`/product/edit/${product.id}`)}>Edit</button>
+                <button type="button">Delete</button> 
             </div>
         </li>
     );
