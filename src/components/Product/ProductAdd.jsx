@@ -2,12 +2,10 @@ import ProductViewContainer from "./ProductViewContainer";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { items, addProduct } from "../../Store";
+import { addProduct } from "../../Store";
 
 const ProductAdd = () => {
     const dispatch = useDispatch();
-    //Treba da proslijedis ova govna u redux store nekako
-
     const navigate = useNavigate();
 
     const [enteredTitle, setEnteredTitle] = useState();
@@ -26,7 +24,6 @@ const ProductAdd = () => {
     const discountChangeHandler = event => setEnteredDiscount(event.target.value);
     const descriptionChangeHandler = event => setEnteredDescription(event.target.value);
 
-    const [product, setProduct] = useState();
     const submitHandler = event => {
         event.preventDefault();
         let new_product = {
@@ -50,8 +47,9 @@ const ProductAdd = () => {
             title: enteredTitle
         }
 
-        items.dispatch(addProduct(new_product));
-        console.log(new_product);
+        dispatch(addProduct(new_product));
+        navigate("/");
+        
     };
 
 

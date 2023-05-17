@@ -16,8 +16,9 @@ const productSlice = createSlice({
       state.products = state.products.filter(product => product.id !== action.payload);
     },
     updateProduct: (state, action) => {
-      const targetIndex = state.products.findIndex(product => product.id === action.payload.id);
+      const targetIndex = state.products.findIndex(product => product.id == action.payload.id);
       state.products[targetIndex] = action.payload;
+      console.log(current(state.products))
     }
   },
 });
@@ -49,6 +50,6 @@ const test_item = {
 // items.dispatch(addProduct(test_item));
 // items.dispatch(deleteProduct(15));
 // items.dispatch(deleteProduct(6));
-// items.dispatch(updateProduct(test_item));
+items.dispatch(updateProduct(test_item));
 
 export default items;
