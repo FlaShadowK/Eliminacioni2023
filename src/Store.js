@@ -1,4 +1,4 @@
-import { configureStore, createSlice} from "@reduxjs/toolkit";
+import { configureStore, createSlice, current} from "@reduxjs/toolkit";
 
 
 const dummy_items = await fetch("https://dummyjson.com/products").then((res) =>
@@ -7,24 +7,24 @@ const dummy_items = await fetch("https://dummyjson.com/products").then((res) =>
 
 const productSlice = createSlice({
   name: "items",
-  initialState: dummy_items.products,
+  initialState: dummy_items,
   reducers: { 
     addProduct: (state, action) => {
-      state = [...state, action.payload];
+      state.products = [...state.products, action.payload]; //PROMIJENI SVE ZIVO dodaj .products
     },
     deleteProduct: (state, action) => {
-      state = state.filter(product => product.id !== action.payload);
+      state.products = state.products.filter(product => product.id !== action.payload);
     },
     updateProduct: (state, action) => {
-      const targetIndex = state.findIndex(product => product.id === action.payload.id);
-      state[targetIndex] = action.payload;
+      const targetIndex = state.products.findIndex(product => product.id === action.payload.id);
+      state.products[targetIndex] = action.payload;
     }
   },
 });
 
 export const {addProduct, deleteProduct, updateProduct} = productSlice.actions;
 
-const items = configureStore({
+export const items = configureStore({
   reducer: {
     products: productSlice.reducer,
   }

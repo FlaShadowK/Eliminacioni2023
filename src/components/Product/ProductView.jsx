@@ -6,7 +6,7 @@ const ProductView = () => {
     const params = useParams();
     console.log(params.id);
 
-    const product = useSelector(state => state.products.filter(products => products.id == params.id)[0]);
+    const product = useSelector(state => state.products.products.filter(products => products.id == params.id)[0]);
     console.log(product);
     return (
         <ProductViewContainer>

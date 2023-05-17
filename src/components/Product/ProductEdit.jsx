@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 const ProductEdit = () => {
     const navigate = useNavigate();
     const params = useParams();
-    const product = useSelector(state => state.products.filter(products => products.id == params.id)[0]);
-
+    const product = useSelector(state => state.products.products.filter(products => products.id == params.id)[0]);
+    
     return (
         <ProductViewContainer>
             <h1>{`Edit Product / ${product.title}`}</h1>

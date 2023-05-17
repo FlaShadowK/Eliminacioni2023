@@ -5,7 +5,8 @@ import ProductListContainer from "./components/Product/ProductListContainer";
 import ProductItem from "./components/Product/ProductItem"; 
 
 function Home() {
-  const products = useSelector(state => state.products);
+  const products = useSelector(state => state.products.products);
+
   let length = products.length;
 
   let displayCount;
