@@ -1,12 +1,16 @@
 import ProductViewContainer from "./ProductViewContainer";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../Store";
 
 const ProductAdd = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const nextId = useSelector(state => {
+        let length = state.products.products.length;
+        return state.products.products[length - 1].id + 1;
+    });
 
     const [enteredTitle, setEnteredTitle] = useState();
     const [enteredBrand, setEnteredBrand] = useState();
@@ -27,11 +31,11 @@ const ProductAdd = () => {
     const submitHandler = event => {
         event.preventDefault();
         let new_product = {
+            id: nextId,
             brand: enteredBrand,
             category: enteredCategory,
             description: enteredDescription,
-            discountPercentage: enteredDiscount,
-            id: 123, //change this temp thing :D4
+            discountPercentage: enteredDiscount,      
             images : [
                 `https://place-hold.it/500x300/aaa/red&text=${enteredTitle}&fontsize=20`,
                 `https://place-hold.it/500x300/aaa/green&text=${enteredTitle}&fontsize=20`,
@@ -44,7 +48,7 @@ const ProductAdd = () => {
             rating: enteredRating,
             stock: Math.floor(Math.random() * 500),
             thumbnail: `https://place-hold.it/500x300/aaa/red&text=${enteredTitle}&fontsize=20`,
-            title: enteredTitle
+            title: enteredTitle,
         }
 
         dispatch(addProduct(new_product));
