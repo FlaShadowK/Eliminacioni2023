@@ -13,7 +13,7 @@ const productSlice = createSlice({
       state.products = [...state.products, action.payload]; //PROMIJENI SVE ZIVO dodaj .products
     },
     deleteProduct: (state, action) => {
-      state.products = state.products.filter(product => product.id !== action.payload);
+      state.products = state.products.filter(product => product.id != action.payload);
     },
     updateProduct: (state, action) => {
       const targetIndex = state.products.findIndex(product => product.id == action.payload.id);
@@ -48,8 +48,8 @@ const test_item = {
 };
 
 // items.dispatch(addProduct(test_item));
-// items.dispatch(deleteProduct(15));
+// items.dispatch(deleteProduct(1));
 // items.dispatch(deleteProduct(6));
-items.dispatch(updateProduct(test_item));
+// items.dispatch(updateProduct(test_item));
 
 export default items;

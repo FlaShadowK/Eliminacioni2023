@@ -1,10 +1,20 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProductViewContainer from "./ProductViewContainer";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteProduct } from "../../Store";
 
 const ProductView = () => {
     const params = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     console.log(params.id);
+
+    const deleteAndExit = () => {
+        dispatch(deleteProduct(params.id));
+        navigate("/");
+    }
 
     const product = useSelector(state => state.products.products.filter(products => products.id == params.id)[0]);
     console.log(product);
@@ -23,8 +33,8 @@ const ProductView = () => {
                     </div>
                 </div>
                 <div style={{width: "auto"}} className="row c-gap end bottom">
-                    <button className="pbutton" type="button">Edit</button>
-                    <button className="pbutton" type="button">Delete</button>
+                    <button className="pbutton" type="button" onClick={() => navigate(`/product/edit/${params.id}`)}>Edit</button>
+                    <button className="pbutton" type="button" onClick={deleteAndExit}>Delete</button>
                 </div>
             </div>
             <div className={"row evenly pimage-container"}>

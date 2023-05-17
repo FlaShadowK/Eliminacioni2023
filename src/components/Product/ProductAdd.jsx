@@ -98,7 +98,7 @@ const ProductAdd = () => {
                     </div>
                     <div className="row c-gap">
                         <button type="button" className="w-100 button-cancel" onClick={() => navigate("/")}>Cancel</button>
-                        <button type="submit" className="w-100" >Add</button>
+                        <button type="submit" className="w-100">Add</button>
                     </div>
                 </div>
             </form>

@@ -100,8 +100,8 @@ const ProductEdit = () => {
                         </div>
                     </div>
                     <div className="row c-gap">
-                        <button className="w-100 button-cancel"  onClick={() => navigate("/")} >Cancel</button>
-                        <button className="w-100">Save</button>
+                        <button className="w-100 button-cancel" type="button"  onClick={() => navigate("/")} >Cancel</button>
+                        <button className="w-100" type="submit">Save</button>
                     </div>
                 </div>
             </form>
