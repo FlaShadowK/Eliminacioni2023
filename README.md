@@ -18,6 +18,8 @@ This app has been created using **vite**, to start it use:
 
 Visit the website: [ca23.oarman.me](https://ca23.oarman.me)
 
+###### ***Warning***: The site is not responsive, do not open on small screens!!
+
 
 
 
