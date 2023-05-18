@@ -9,6 +9,7 @@ const ProductItem = props => {
     const navigate = useNavigate();
 
     const deleteAndExit = () => {
+
         dispatch(deleteProduct(product.id));
         navigate("/");
     }

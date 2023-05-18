@@ -30,6 +30,7 @@ const ProductAdd = () => {
 
     const submitHandler = event => {
         event.preventDefault();
+
         let new_product = {
             id: nextId,
             brand: enteredBrand,

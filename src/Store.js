@@ -1,5 +1,4 @@
-import { configureStore, createSlice, current} from "@reduxjs/toolkit";
-
+import { configureStore, createSlice, current } from "@reduxjs/toolkit";
 
 const dummy_items = await fetch("https://dummyjson.com/products").then((res) =>
   res.json()
@@ -8,27 +7,51 @@ const dummy_items = await fetch("https://dummyjson.com/products").then((res) =>
 const productSlice = createSlice({
   name: "items",
   initialState: dummy_items,
-  reducers: { 
+  reducers: {
     addProduct: (state, action) => {
-      state.products = [...state.products, action.payload]; //PROMIJENI SVE ZIVO dodaj .products
+      fetch("https://dummyjson.com/products/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...new_product,
+        }),
+      }).then((res) => res.json());
+
+      state.products = [...state.products, action.payload];
     },
     deleteProduct: (state, action) => {
-      state.products = state.products.filter(product => product.id != action.payload);
+      fetch(`https://dummyjson.com/products/${action.payload}`, {
+        method: "DELETE",
+      }).then((res) => res.json());
+
+      state.products = state.products.filter(
+        (product) => product.id != action.payload
+      );
     },
     updateProduct: (state, action) => {
-      const targetIndex = state.products.findIndex(product => product.id == action.payload.id);
+      fetch(`https://dummyjson.com/products/${id}`, {
+        method: "PUT" /* or PATCH */,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...edited_product,
+        }),
+      }).then((res) => res.json());
+
+      const targetIndex = state.products.findIndex(
+        (product) => product.id == action.payload.id
+      );
       state.products[targetIndex] = action.payload;
-      console.log(current(state.products))
-    }
+    },
   },
 });
 
-export const {addProduct, deleteProduct, updateProduct} = productSlice.actions;
+export const { addProduct, deleteProduct, updateProduct } =
+  productSlice.actions;
 
 export const items = configureStore({
   reducer: {
     products: productSlice.reducer,
-  }
+  },
 });
 
 items.subscribe(() => console.log(items.getState()));
@@ -44,7 +67,7 @@ const test_item = {
   raing: "test",
   stock: "test",
   thumbnail: "test",
-  title: "test"
+  title: "test",
 };
 
 // items.dispatch(addProduct(test_item));

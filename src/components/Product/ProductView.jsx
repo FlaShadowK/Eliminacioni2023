@@ -9,7 +9,6 @@ const ProductView = () => {
     const params = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    console.log(params.id);
 
     const deleteAndExit = () => {
         dispatch(deleteProduct(params.id));
@@ -17,7 +16,7 @@ const ProductView = () => {
     }
 
     const product = useSelector(state => state.products.products.filter(products => products.id == params.id)[0]);
-    console.log(product);
+
     return (
         <ProductViewContainer>
             <div className="row c-gap between">

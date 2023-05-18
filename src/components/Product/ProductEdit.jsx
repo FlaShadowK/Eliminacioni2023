@@ -36,6 +36,7 @@ const ProductEdit = () => {
     if (enteredDescription == undefined) setEnteredDescription(product.description);
 
     const submitHandler = event => {
+
         event.preventDefault();
         let edited_product = {
             brand: enteredBrand,
