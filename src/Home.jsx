@@ -6,7 +6,6 @@ import ProductItem from "./components/Product/ProductItem";
 
 function Home() {
   const products = useSelector(state => state.products.products);
-
   let length = products.length;
 
   let displayCount;
@@ -17,7 +16,7 @@ function Home() {
     displayCount = length;
   }
 
-  const [visible, setVisible] = useState(9);
+  const [visible, setVisible] = useState(displayCount);
 
   const loadMore = () => {
     setVisible(prevState => {
@@ -43,7 +42,7 @@ function Home() {
     <>
       {isLoading() ? <LoadingSpinner /> : 
         <ProductListContainer>
-          {products.slice(0, visible).map(product => (
+          {products.slice(0).reverse().slice(0, visible).map(product => (
             <ProductItem key={product.id} item={product}/>
           ))}
           <li>
