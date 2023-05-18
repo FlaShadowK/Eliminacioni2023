@@ -4,8 +4,6 @@ const dummy_items = await fetch("https://dummyjson.com/products").then((res) =>
   res.json()
 );
 
-let dami = {dummy_items, loading : 0}
-
 const productSlice = createSlice({
   name: "items",
   initialState: dummy_items,
