@@ -4,6 +4,8 @@ const dummy_items = await fetch("https://dummyjson.com/products").then((res) =>
   res.json()
 );
 
+let dami = {dummy_items, loading : 0}
+
 const productSlice = createSlice({
   name: "items",
   initialState: dummy_items,
@@ -13,7 +15,7 @@ const productSlice = createSlice({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...new_product,
+          ...action.payload,
         }),
       }).then((res) => res.json());
 
@@ -29,11 +31,11 @@ const productSlice = createSlice({
       );
     },
     updateProduct: (state, action) => {
-      fetch(`https://dummyjson.com/products/${id}`, {
+      fetch(`https://dummyjson.com/products/${action.payload.id}`, {
         method: "PUT" /* or PATCH */,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...edited_product,
+          ...action.payload
         }),
       }).then((res) => res.json());
 
